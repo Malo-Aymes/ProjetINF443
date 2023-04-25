@@ -1,0 +1,10 @@
+^C:\USERS\MALOS\ONEDRIVE\DOCUMENTS\2A\INF443\INF443_PRACTICE_CODE\CGP\EXAMPLES\EXAMPLE_COMPILATION\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/malos/OneDrive/Documents/2A/INF443/inf443_practice_code/cgp/examples/example_compilation -BC:/Users/malos/OneDrive/Documents/2A/INF443/inf443_practice_code/cgp/examples/example_compilation/build --check-stamp-file C:/Users/malos/OneDrive/Documents/2A/INF443/inf443_practice_code/cgp/examples/example_compilation/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

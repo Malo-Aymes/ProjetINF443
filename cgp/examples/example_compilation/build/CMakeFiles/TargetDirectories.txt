@@ -1,0 +1,3 @@
+C:/Users/malos/OneDrive/Documents/2A/INF443/inf443_practice_code/cgp/examples/example_compilation/build/CMakeFiles/example_compilation.dir
+C:/Users/malos/OneDrive/Documents/2A/INF443/inf443_practice_code/cgp/examples/example_compilation/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/malos/OneDrive/Documents/2A/INF443/inf443_practice_code/cgp/examples/example_compilation/build/CMakeFiles/ZERO_CHECK.dir
