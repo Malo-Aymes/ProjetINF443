@@ -1,5 +1,7 @@
 #include "scene.hpp"
 #include "sphere.hpp"
+#include "terrain.hpp"
+#include "tree.hpp"
 
 
 using namespace cgp;
@@ -12,9 +14,17 @@ void scene_structure::initialize()
 	global_frame.initialize_data_on_gpu(mesh_primitive_frame());
 
 
-	terrain_mesh = create_sphere({ 0,0,0 }, 5);
+	terrain_mesh = create_terrain_mesh(20, 10);
 	terrain_drawable.initialize_data_on_gpu(terrain_mesh);
-	update_terrain(terrain_mesh, { 0,0,0 }, 5, terrain_drawable, parameters);
+	//update_terrain(terrain_mesh, { 0,0,0 }, 5, terrain_drawable, parameters);
+
+	mesh const tree_mesh = create_tree(1,4,2);
+	tree.initialize_data_on_gpu(tree_mesh);
+	for (int i = 0; i < 10; i++) {
+		for (int j = 0; j < 10; j++) {
+			tree_positions[i + 10 * j] = { 5*i,5*j,0 };
+		}
+	}
 }
 
 
@@ -33,6 +43,11 @@ void scene_structure::display_frame()
 	draw(terrain_drawable, environment);
 	if (gui.display_wireframe)
 		draw_wireframe(terrain_drawable, environment);
+
+	for (int i = 0; i < 100; i++) {
+		tree.model.translation = tree_positions[i];
+		draw(tree, environment);
+	}
 }
 
 void scene_structure::display_gui()
